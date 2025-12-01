@@ -1,0 +1,307 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; line-height: 1.5; color: #222; background: #fafafa; }
+
+/* Navbar */
+.navbar {
+    background: #333;
+    color: white;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #ff9800;
+}
+
+/* Sections */
+.section {
+    min-height: 100vh;
+    padding: 120px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+/* Home Section Layout */
+.home {
+    position: relative;
+    height: 100vh;
+    background: url("../../images/Taranath Tantric.png") no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* Dark overlay for contrast */
+.home::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+/* Content container */
+.home-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 1200px;
+    gap: 40px;
+}
+
+/* Left side: circular image */
+.home-left img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Right side: text */
+.home-right h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #ffffff; /* change text color here */
+}
+
+.home-right p {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    .home-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .home-left img {
+        width: 180px;
+        height: 180px;
+        margin-bottom: 20px;
+    }
+
+    .home-right h1 {
+        font-size: 2rem;
+    }
+}
+
+
+
+
+
+.about, .contact {
+    background: #f8f9fa;
+}
+
+.about .about-right img {
+    width: 250px;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    margin-left: 700px;
+    margin-top: -70px;
+}
+
+.about .about-left{
+    margin-right: 450px;
+    margin-top: -340px;
+}
+
+
+.about .about-left h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #441313; /* change text color here */
+}
+
+
+.about .about-left p {
+    width: 600px;
+    font-size: 0.9rem;
+    color: #2d0c0c;
+    line-height: 1.6;
+}
+
+
+@media (max-width: 768px) {
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about .about-right img {
+        width: 200px;
+        margin: 20px 0;
+        margin-left: 0;
+        margin-top: 0;
+    }
+
+    .about .about-left {
+        margin: 0;
+        padding: 0 20px;
+    }
+
+    .about .about-left p {
+        width: 100%;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+}
+
+.gallery {
+    background: #fff;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.gallery h2 {
+    font-size: 2rem;
+    color: #441313;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* Container layout */
+.gallery-container {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Each image wrapper */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+/* Image styling */
+.gallery-item img {
+    display: block;
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover zoom */
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Overlay text box */
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: rgba(68, 19, 19, 0.7);
+    color: #fff;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.4s ease;
+    border-radius: 10px;
+}
+
+/* Hover animation */
+.gallery-item:hover .overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+/* Contact Form */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+}
+
+form input, form textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+form button {
+    padding: 10px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #ff9800;
+}
+
+.success {
+    margin-top: 10px;
+    color: green;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}
